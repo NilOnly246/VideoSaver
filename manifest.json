@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "VideoSaver",
+  "version": "1",
+  "description": "Eztension to save pointers to wanna-see videos in YouTube",
+  
+  "icons": {
+  },
+
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "tabs"
+  ],
+
+  "host_permissions": [
+    "https://youtube.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": "https://www.youtube.com/*",
+      "js": ["content.js"]
+    }
+  ],
+
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "youtube-saver@ejemplo.com",
+    "strict_min_version": "115.0"
+  },
+  "chrome": {
+    "strict_min_version": "120.0"
+  }
+ }
+}
