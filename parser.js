@@ -45,7 +45,12 @@ function generateTable(data) {
   return table;
 }
 
-// Render the table
-const container = document.getElementById('table-container');
-const table = generateTable(csvJSON("hola;124\nadios;567\n"));
-if (table) container.appendChild(table);
+const csvUrl = chrome.runtime.getURL("videos.csv");
+
+fetch(csvUrl)
+  .then(res => res.text())
+  .then(csvText => {
+      const data = csvJSON(csvText);
+      const table = generateTable(data);
+      document.getElementById('table-container').appendChild(table);
+  });
