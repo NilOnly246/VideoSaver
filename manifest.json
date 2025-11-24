@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "VideoSaver",
   "version": "1",
-  "description": "Eztension to save pointers to wanna-see videos in YouTube",
+  "description": "Extension to save pointers to wanna-see videos in YouTube",
   
   "icons": {
   },
